@@ -49,3 +49,10 @@ def vote(request, question_id):
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
+
+
+def add(request):
+    value1 = int(request.GET['num1'])
+    value2 = int(request.GET['num2'])
+    sum = value1 + value2
+    return render(request, 'polls/add.html', {'add': sum})
